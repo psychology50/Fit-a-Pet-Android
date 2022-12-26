@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                                   xmlns:tools="http://schemas.android.com/tools"
+                                                   android:layout_width="match_parent"
+                                                   android:layout_height="match_parent"
+                                                   xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:fillViewport="true"
+            app:layout_constraintStart_toStartOf="parent">
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:orientation="vertical">
+
+            <FrameLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                          android:orientation="horizontal" android:layout_marginStart="25dp"
+                         android:layout_marginEnd="25dp"
+                          android:layout_marginTop="25dp">
+                <Button
+                        android:background="@drawable/ic_backbtn"
+                        android:layout_width="20dp"
+                        android:layout_height="25dp" android:id="@+id/button4"
+                        tools:layout_editor_absoluteY="12dp"
+                        tools:layout_editor_absoluteX="27dp"/>
+                <TextView
+                        android:text="@string/register"
+                        android:layout_width="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_height="wrap_content" android:id="@+id/textView10"
+                        tools:layout_editor_absoluteY="24dp"
+                        tools:layout_editor_absoluteX="178dp"/>
+            </FrameLayout>
+
+            <TextView
+                    android:text="@string/id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/textView" tools:layout_editor_absoluteY="79dp"
+                    tools:layout_editor_absoluteX="39dp"
+                    android:layout_marginTop="25dp"/>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+                <EditText
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPersonName"
+                        android:text="@string/idText"
+                        android:ems="10"
+                        android:id="@+id/editTextTextPersonName" tools:layout_editor_absoluteY="104dp"
+                        tools:layout_editor_absoluteX="39dp"/>
+
+                <Button
+                        android:text="@string/duplicate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:id="@+id/button" tools:layout_editor_absoluteY="102dp"
+                        tools:layout_editor_absoluteX="253dp"/>
+            </LinearLayout>
+            <TextView
+                    android:text="@string/invalid_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/textView" tools:layout_editor_absoluteY="79dp"
+                    tools:layout_editor_absoluteX="39dp"/>
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="vertical" android:layout_marginTop="25dp">
+                <TextView
+                        android:text="@string/password"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:id="@+id/textView4" tools:layout_editor_absoluteY="162dp"
+                        tools:layout_editor_absoluteX="40dp"/>
+                <EditText
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPassword"
+                        android:ems="10"
+                        android:id="@+id/editTextTextPassword" tools:layout_editor_absoluteY="192dp"
+                        tools:layout_editor_absoluteX="40dp"/>
+                <EditText
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPassword"
+                        android:ems="10"
+                        android:id="@+id/editTextTextPassword2" tools:layout_editor_absoluteY="249dp"
+                        tools:layout_editor_absoluteX="40dp"/>
+                <TextView
+                        android:text="TextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:id="@+id/textView5" tools:layout_editor_absoluteY="296dp"
+                        tools:layout_editor_absoluteX="42dp"/>
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+                <TextView
+                        android:text="TextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:id="@+id/textView6" tools:layout_editor_absoluteY="347dp"
+                        tools:layout_editor_absoluteX="42dp"/>
+                <EditText
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPersonName"
+                        android:text="Name"
+                        android:ems="10"
+                        android:id="@+id/editTextTextPersonName2" tools:layout_editor_absoluteY="372dp"
+                        tools:layout_editor_absoluteX="40dp"/>
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+                <TextView
+                        android:text="TextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:id="@+id/textView7" tools:layout_editor_absoluteY="441dp"
+                        tools:layout_editor_absoluteX="48dp"/>
+                <EditText
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPersonName"
+                        android:text="Name"
+                        android:ems="10"
+                        android:id="@+id/editTextTextPersonName3" tools:layout_editor_absoluteY="475dp"
+                        tools:layout_editor_absoluteX="45dp"/>
+
+                <Button
+                        android:text="Button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:id="@+id/button2" tools:layout_editor_absoluteY="472dp"
+                        tools:layout_editor_absoluteX="268dp"/>
+                <TextView
+                        android:text="TextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:id="@+id/textView8" tools:layout_editor_absoluteY="526dp"
+                        tools:layout_editor_absoluteX="51dp"/>
+            </LinearLayout>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+                <TextView
+                        android:text="TextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:id="@+id/textView9" tools:layout_editor_absoluteY="558dp"
+                        tools:layout_editor_absoluteX="48dp"/>
+
+            </LinearLayout>
+            <Button
+                    android:text="Button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/button3" tools:layout_editor_absoluteY="651dp"
+                    tools:layout_editor_absoluteX="165dp"/>
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

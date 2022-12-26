@@ -5,6 +5,8 @@
       <map>
         <entry key="..\:/intelliJ/FitaPet/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.18" />
         <entry key="..\:/intelliJ/FitaPet/app/src/main/res/drawable/avd_anim.xml" value="0.1" />
+        <entry key="..\:/intelliJ/FitaPet/app/src/main/res/drawable/btn_round.xml" value="0.2915" />
+        <entry key="..\:/intelliJ/FitaPet/app/src/main/res/drawable/edit_text_round.xml" value="0.2915" />
         <entry key="..\:/intelliJ/FitaPet/app/src/main/res/drawable/ic_backbtn.xml" value="0.18" />
         <entry key="..\:/intelliJ/FitaPet/app/src/main/res/drawable/ic_backbtn_white.xml" value="0.18" />
         <entry key="..\:/intelliJ/FitaPet/app/src/main/res/drawable/ic_dog.xml" value="0.2195" />
@@ -15,7 +17,8 @@
         <entry key="..\:/intelliJ/FitaPet/app/src/main/res/layout/act_main.xml" value="0.25" />
         <entry key="..\:/intelliJ/FitaPet/app/src/main/res/layout/act_splash.xml" value="0.17135416666666667" />
         <entry key="..\:/intelliJ/FitaPet/app/src/main/res/layout/activity_main.xml" value="0.3625" />
-        <entry key="..\:/intelliJ/FitaPet/app/src/main/res/layout/login_act.xml" value="0.1" />
+        <entry key="..\:/intelliJ/FitaPet/app/src/main/res/layout/login_act.xml" value="0.33" />
+        <entry key="..\:/intelliJ/FitaPet/app/src/main/res/layout/register_act.xml" value="0.28854166666666664" />
         <entry key="..\:/intelliJ/FitaPet/app/src/main/res/layout/splash_main.xml" value="0.34739583333333335" />
         <entry key="..\:/intelliJ/FitaPet/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.18" />
       </map>

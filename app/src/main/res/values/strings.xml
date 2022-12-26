@@ -1,9 +1,31 @@
 <resources>
     <string name="app_name">Fit-a-Pet</string>
 
+    <!-- loginForm -->
     <string name="Login">로그인</string>
     <string name="id">아이디</string>
     <string name="password">비밀번호</string>
     <string name="loginBtn">로그인하기</string>
+    <string name="searchUser"><u>아이디/비밀번호 찾기</u></string>
+    <string name="createUserText1">계정이 없으신가요?</string>
+    <string name="createUserText2"><u>계정 만들기</u></string>
+
+    <!-- registerForm -->
+    <string name="nickname">닉네임</string>
+    <string name="email">이메일</string>
+    <string name="emailText">이메일을 입력해주세요.</string>
+    <string name="phone">휴대폰 번호</string>
+    <string name="idText">사용할 아이디를 입력해주세요.</string>
+    <string name="psdText">영문, 숫자 조합 8자리 이상</string>
+    <string name="check_pwd">비밀번호 확인</string>
+    <string name="nicknameText">닉네임을 입력해주세요.</string>
+    <string name="register">회원가입</string>
+    <string name="duplicate">중복확인</string>
+
+    <string name="valid_id">사용 가능한 아이디입니다.</string>
+    <string name="invalid_id">이미 사용중인 아이디입니다.</string>
+    <string name="valid_pwd">패스워드가 일치합니다.</string>
+    <string name="invalid_pwd">패스워드가 일치하지 않습니다.</string>
+
 
 </resources>
