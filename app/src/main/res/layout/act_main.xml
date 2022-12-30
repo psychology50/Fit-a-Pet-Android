@@ -7,13 +7,37 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".view.MainActivity">
-    <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Hello World!"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
 
+    <LinearLayout android:layout_width="409dp" android:layout_height="wrap_content"
+                  android:orientation="vertical" android:fillViewport="true"
+                  app:layout_constraintStart_toStartOf="parent"
+                  app:layout_constraintTop_toTopOf="parent">
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="409dp"
+                android:layout_height="100dp" tools:layout_editor_absoluteY="1dp"
+                tools:layout_editor_absoluteX="1dp" android:background="@color/white">
+
+        </LinearLayout>
+
+        <FrameLayout
+                android:layout_width="match_parent" android:layout_height="170dp"
+                android:layout_marginTop="20dp" android:background="@color/white">
+
+        </FrameLayout>
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="170dp"
+                      android:layout_marginTop="20dp" android:background="@color/white"
+                      android:orientation="vertical">
+            <TextView android:layout_width="match_parent" android:layout_height="40dp"/>
+            <androidx.viewpager2.widget.ViewPager2
+                    android:layout_width="match_parent"
+                    android:layout_height="130dp"/>
+        </LinearLayout>
+
+        <FrameLayout android:layout_width="match_parent" android:layout_height="407dp"
+                     android:layout_marginTop="2dp" android:background="@color/white">
+
+        </FrameLayout>
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
