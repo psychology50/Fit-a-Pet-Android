@@ -12,7 +12,7 @@ import likelion.project.fit_a_pet.databinding.ActMainBinding
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActMainBinding
 
-    @SuppressLint("CommitPrefEdits")
+//    @SuppressLint("CommitPrefEdits")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActMainBinding.inflate(layoutInflater) // xml에 있는 View 객체화

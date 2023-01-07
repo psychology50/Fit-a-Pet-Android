@@ -30,5 +30,10 @@
     <string name="valid_pwd">패스워드가 일치합니다.</string>
     <string name="invalid_pwd">패스워드가 일치하지 않습니다.</string>
 
+    <!-- main -->
+    <string name="schedule_list">모든 스케쥴</string>
+    <string name="schedule_content">등록된 반려동물이 없어 예정된 스케줄을 조회할 수 없어요</string>
+    <string name="pet_list">나의 반려동물 리스트</string>
+
 
 </resources>
