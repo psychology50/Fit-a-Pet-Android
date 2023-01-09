@@ -32,8 +32,10 @@
 
     <!-- main -->
     <string name="schedule_list">모든 스케쥴</string>
-    <string name="schedule_content">등록된 반려동물이 없어 예정된 스케줄을 조회할 수 없어요</string>
+    <string name="schedule_content">등록된 반려동물이 없어\n 예정된 스케줄을 조회할 수 없어요</string>
     <string name="pet_list">나의 반려동물 리스트</string>
+    <string name="btn_new_pet_text">새로운 반려동물 추가하기</string>
+    <string name="empty_pet">아직 등록된 반려동물이 없어요...</string>
 
 
 </resources>

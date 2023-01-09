@@ -33,6 +33,6 @@ abstract class BaseActivity<B: ViewDataBinding> (
     }
 
     override fun onBackPressed() {
-        backPressHandler!!.onBackPressed()
+        backPressHandler?.onBackPressed()
     }
 }

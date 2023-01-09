@@ -48,24 +48,24 @@ class SplashActivity : BaseActivity<ActSplashBinding>(R.layout.act_splash) {
                 }
             )
 
-            splashScreen.setOnExitAnimationListener { splashScreenView ->
-                val slideUp = ObjectAnimator.ofFloat(
-                    splashScreenView,
-                    View.TRANSLATION_Y,
-                    0f,
-                    -splashScreenView.height.toFloat()
-                )
-                slideUp.interpolator = AnticipateInterpolator()
-                slideUp.duration = 1000L
-                isStart = true
-
-                slideUp.doOnEnd {
-                    splashScreenView.remove()
-                    startMainActivity()
-                }
-
-                slideUp.start()
-            }
+//            splashScreen.setOnExitAnimationListener { splashScreenView ->
+//                val slideUp = ObjectAnimator.ofFloat(
+//                    splashScreenView,
+//                    View.TRANSLATION_Y,
+//                    0f,
+//                    -splashScreenView.height.toFloat()
+//                )
+//                slideUp.interpolator = AnticipateInterpolator()
+//                slideUp.duration = 1000L
+//                isStart = true
+//
+//                slideUp.doOnEnd {
+//                    splashScreenView.remove()
+//                    startMainActivity()
+//                }
+//
+//                slideUp.start()
+//            }
         } else {
             startMainActivity()
         }
@@ -83,7 +83,7 @@ class SplashActivity : BaseActivity<ActSplashBinding>(R.layout.act_splash) {
 
     private fun errorGuard() {
         thread(start = true) {
-            Thread.sleep(5000)
+            Thread.sleep(1000)
 
             if (!isStart) {
                 Log.d("SplashAct" , "start $isStart :: startActivity")

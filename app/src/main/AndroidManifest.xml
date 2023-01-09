@@ -16,8 +16,7 @@
             android:theme="@style/Theme.FitaPet"
             tools:targetApi="31"
             android:usesCleartextTraffic="true">
-        <activity android:name=".view.MainActivity"
-                  android:exported="true"/>
+
         <activity
                 android:name=".view.splash.SplashActivity"
                 android:exported="true"
@@ -29,6 +28,13 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".view.MainActivity"
+                  android:exported="true"/>
+
+        <activity android:name=".view.auth.LoginActivity"
+                  android:exported="true"/>
+<!--        <activity android:name=".view.auth."-->
+<!--                  android:exported="true"/>-->
 
     </application>
 
