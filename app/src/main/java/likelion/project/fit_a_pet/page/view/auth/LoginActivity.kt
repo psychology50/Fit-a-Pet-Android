@@ -9,6 +9,11 @@ class LoginActivity : BaseActivity<ActLoginBinding>(R.layout.act_login) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+//        val username = binding.username
+//        val password = binding.password
+//        val login = binding.login
+//        val loading = binding.loading
     }
 
 }

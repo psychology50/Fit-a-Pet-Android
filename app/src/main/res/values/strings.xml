@@ -6,9 +6,13 @@
     <string name="id">아이디</string>
     <string name="password">비밀번호</string>
     <string name="loginBtn">로그인하기</string>
-    <string name="searchUser"><u>아이디/비밀번호 찾기</u></string>
+    <string name="searchUser">
+        <u>아이디/비밀번호 찾기</u>
+    </string>
     <string name="createUserText1">계정이 없으신가요?</string>
-    <string name="createUserText2"><u>계정 만들기</u></string>
+    <string name="createUserText2">
+        <u>계정 만들기</u>
+    </string>
 
     <!-- registerForm -->
     <string name="nickname">닉네임</string>
@@ -36,6 +40,16 @@
     <string name="pet_list">나의 반려동물 리스트</string>
     <string name="btn_new_pet_text">새로운 반려동물 추가하기</string>
     <string name="empty_pet">아직 등록된 반려동물이 없어요...</string>
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome!"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="title_activity_login2">LoginActivity2</string>
 
 
 </resources>
