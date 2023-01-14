@@ -175,7 +175,7 @@
                 <TextView
                         android:text="@string/phone"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" android:id="@+id/phone"
+                        android:layout_height="wrap_content" android:id="@+id/txt_phone"
                         tools:layout_editor_absoluteY="558dp"
                         tools:layout_editor_absoluteX="48dp" android:textColor="@color/black"/>
             </LinearLayout>
@@ -187,19 +187,19 @@
                         android:layout_height="48dp"
                         android:inputType="textPersonName"
                         android:ems="10"
-                        android:id="@+id/editTextTextPersonName4" android:layout_weight="2.6"
+                        android:id="@+id/edit_phone1" android:layout_weight="2.6"
                         android:background="@drawable/edit_text_round"/>
                 <TextView
                         android:text="@string/hyphen"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" android:id="@+id/textView8" android:layout_weight="1.2"
+                        android:layout_height="wrap_content" android:layout_weight="1.2"
                         android:gravity="center" android:textSize="16sp" android:textStyle="bold"/>
                 <EditText
                         android:layout_width="0dp"
                         android:layout_height="48dp"
                         android:inputType="textPersonName"
                         android:ems="10"
-                        android:id="@+id/editTextTextPersonName5" android:layout_weight="2.6"
+                        android:id="@+id/edit_phone2" android:layout_weight="2.6"
                         android:background="@drawable/edit_text_round"/>
                 <TextView
                         android:text="@string/hyphen"
@@ -207,18 +207,19 @@
                         android:layout_height="wrap_content" android:id="@+id/textView11" android:layout_weight="1.2"
                         android:gravity="center" android:textStyle="bold" android:textSize="16sp"/>
                 <EditText
+                        android:id="@+id/edit_phone3"
                         android:layout_width="0dp"
                         android:layout_height="48dp"
                         android:inputType="textPersonName"
                         android:ems="10"
-                        android:id="@+id/editTextTextPersonName6" android:layout_weight="2.6"
+                        android:layout_weight="2.6"
                         android:background="@drawable/edit_text_round"/>
             </LinearLayout>
             <Button
                     android:text="@string/register"
                     android:background="@drawable/btn_round"
                     android:layout_width="345dp"
-                    android:layout_height="48dp" android:id="@+id/button3" tools:layout_editor_absoluteY="651dp"
+                    android:layout_height="48dp" android:id="@+id/btn_submit" tools:layout_editor_absoluteY="651dp"
                     tools:layout_editor_absoluteX="165dp"
                     android:layout_marginTop="25dp" android:layout_gravity="center" android:textColor="@color/white"/>
         </LinearLayout>

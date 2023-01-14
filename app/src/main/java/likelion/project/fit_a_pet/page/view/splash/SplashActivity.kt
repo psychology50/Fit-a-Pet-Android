@@ -1,16 +1,13 @@
-package likelion.project.fit_a_pet.view.splash
+package likelion.project.fit_a_pet.page.view.splash
 
-import android.animation.ObjectAnimator
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.view.ViewTreeObserver
-import android.view.animation.AnticipateInterpolator
-import androidx.core.animation.doOnEnd
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
-import likelion.project.fit_a_pet.view.MainActivity
+import likelion.project.fit_a_pet.page.MainActivity
 import likelion.project.fit_a_pet.R
 import likelion.project.fit_a_pet.base.BaseActivity
 import likelion.project.fit_a_pet.databinding.ActSplashBinding
