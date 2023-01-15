@@ -10,7 +10,7 @@ import retrofit2.http.POST
 interface AuthAPI {
     companion object{
         const val REGISTER = "users/signup/"
-        const val LOGIN = "users/sighin/"
+        const val LOGIN = "users/signin/"
     }
 
     @POST(REGISTER)

@@ -17,6 +17,7 @@
             android:theme="@style/Theme.FitaPet"
             android:usesCleartextTraffic="true"
             tools:targetApi="31"
+            android:name=".AuthApplication"
             >
         <activity
                 android:name=".page.view.splash.SplashActivity"

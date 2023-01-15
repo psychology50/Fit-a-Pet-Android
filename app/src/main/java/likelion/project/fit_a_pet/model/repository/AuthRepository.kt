@@ -1,4 +1,4 @@
-package likelion.project.fit_a_pet.repository
+package likelion.project.fit_a_pet.model.repository
 
 import likelion.project.fit_a_pet.module.AuthAPI
 import likelion.project.fit_a_pet.module.data.requests.LoginRequest

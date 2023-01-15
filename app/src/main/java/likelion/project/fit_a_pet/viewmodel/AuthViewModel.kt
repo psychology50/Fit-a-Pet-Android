@@ -9,10 +9,10 @@ import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import likelion.project.fit_a_pet.module.data.requests.LoginRequest
 import likelion.project.fit_a_pet.module.data.requests.RegisterRequest
-import likelion.project.fit_a_pet.repository.LoginState
-import likelion.project.fit_a_pet.repository.LoginUser
-import likelion.project.fit_a_pet.repository.RegisterState
-import likelion.project.fit_a_pet.repository.RegisterUser
+import likelion.project.fit_a_pet.model.repository.LoginState
+import likelion.project.fit_a_pet.model.repository.LoginUser
+import likelion.project.fit_a_pet.model.repository.RegisterState
+import likelion.project.fit_a_pet.model.repository.RegisterUser
 import likelion.project.fit_a_pet.utils.Resource
 import javax.inject.Inject
 

@@ -2,6 +2,7 @@ package likelion.project.fit_a_pet.page.view.auth
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.viewModels
@@ -22,8 +23,8 @@ class LoginActivity : BaseActivity<ActLoginBinding>(R.layout.act_login) {
         val loginBtn = binding.loginBtn
 
         loginBtn.setOnClickListener {
-            val nickname = binding.edtId.toString()
-            val pwd = binding.edtPwd.toString()
+            val nickname = binding.edtId.text.toString()
+            val pwd = binding.edtPwd.text.toString()
 
             if (nickname.isEmpty()) {
                 showToast("Nickname required")
@@ -44,8 +45,9 @@ class LoginActivity : BaseActivity<ActLoginBinding>(R.layout.act_login) {
                     showToast("Loading...")
                 }
                 data.data != null -> {
+                    Log.d("LoginPage", "login success");
                     showToast("Login successful $data")
-
+                    finish()
                 }
                 else -> {
                     showToast("Login Failure ${data.error}")

@@ -1,4 +1,4 @@
-package likelion.project.fit_a_pet.repository
+package likelion.project.fit_a_pet.model.repository
 
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
