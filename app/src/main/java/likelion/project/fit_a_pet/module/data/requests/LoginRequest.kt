@@ -7,6 +7,4 @@ data class LoginRequest(
     val nickname: String,
     @SerializedName("password")
     val password: String,
-    @SerializedName("email")
-    val email: String
 )
