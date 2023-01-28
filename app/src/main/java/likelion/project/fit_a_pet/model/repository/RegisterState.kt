@@ -1,6 +1,6 @@
 package likelion.project.fit_a_pet.model.repository
 
-import likelion.project.fit_a_pet.module.data.responses.RegisterResponse
+import likelion.project.fit_a_pet.network.data.responses.RegisterResponse
 
 class RegisterState (
     var isLoading: Boolean = false,

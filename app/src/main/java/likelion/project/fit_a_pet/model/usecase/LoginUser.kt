@@ -1,9 +1,10 @@
-package likelion.project.fit_a_pet.model.repository
+package likelion.project.fit_a_pet.model.usecase
 
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
-import likelion.project.fit_a_pet.module.data.requests.LoginRequest
-import likelion.project.fit_a_pet.module.data.responses.LoginResponse
+import likelion.project.fit_a_pet.model.repository.AuthRepository
+import likelion.project.fit_a_pet.network.data.requests.LoginRequest
+import likelion.project.fit_a_pet.network.data.responses.LoginResponse
 import likelion.project.fit_a_pet.utils.Resource
 import retrofit2.HttpException
 import java.io.IOException

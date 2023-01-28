@@ -10,7 +10,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import likelion.project.fit_a_pet.R
 import likelion.project.fit_a_pet.base.BaseActivity
 import likelion.project.fit_a_pet.databinding.ActLoginBinding
-import likelion.project.fit_a_pet.module.data.requests.LoginRequest
+import likelion.project.fit_a_pet.network.data.requests.LoginRequest
 import likelion.project.fit_a_pet.viewmodel.AuthViewModel
 
 @AndroidEntryPoint
@@ -39,7 +39,8 @@ class LoginActivity : BaseActivity<ActLoginBinding>(R.layout.act_login) {
     }
 
     private fun observeLogin() {
-        authViewModel._loginState.observe(this) {data ->
+        // LiveData에서 제공하는 메서드 observe
+        authViewModel.loginState.observe(this) {data ->
             when {
                 data.isLoading -> {
                     showToast("Loading...")

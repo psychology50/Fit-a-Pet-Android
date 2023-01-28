@@ -1,4 +1,4 @@
-package likelion.project.fit_a_pet.module
+package likelion.project.fit_a_pet.di
 
 import android.content.Context
 import com.google.gson.Gson
@@ -8,6 +8,7 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
+import likelion.project.fit_a_pet.network.AuthAPI
 import likelion.project.fit_a_pet.utils.Constants.BASE_URL
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -17,7 +18,7 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-class ApplicationModule {
+class ApplicationModule { // 어플리케이션 전체에서 사용되는 종속성
     @Singleton @Provides
     fun provideGsonBuilder(): Gson { // Kotlin 객체 <-> JSON
         return GsonBuilder().create()
@@ -35,14 +36,14 @@ class ApplicationModule {
     }
 
     @Singleton @Provides
-    fun provideAuthService(retrofit: Retrofit.Builder): AuthAPI { // API에서 인스턴스 가져온다.
+    fun provideAuthService(retrofit: Retrofit.Builder): AuthAPI { // Retrofit으로 구축된 API 인스턴스에서 가져온다.
         return retrofit
             .build()
             .create(AuthAPI::class.java)
     }
 
     @Singleton @Provides
-    fun provideInterceptor (
+    fun provideInterceptor ( // API 요청을 가로채고 응답을 콘솔에 기록. (디버깅용)
         @ApplicationContext context: Context
     ): OkHttpClient {
         val interceptor = HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)

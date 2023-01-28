@@ -1,4 +1,4 @@
-package likelion.project.fit_a_pet.module.data.requests
+package likelion.project.fit_a_pet.network.data.requests
 
 import com.google.gson.annotations.SerializedName
 

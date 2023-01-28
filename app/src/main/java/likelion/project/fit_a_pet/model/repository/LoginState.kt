@@ -1,6 +1,6 @@
 package likelion.project.fit_a_pet.model.repository
 
-import likelion.project.fit_a_pet.module.data.responses.LoginResponse
+import likelion.project.fit_a_pet.network.data.responses.LoginResponse
 
 class LoginState (
     var isLoading: Boolean = false,

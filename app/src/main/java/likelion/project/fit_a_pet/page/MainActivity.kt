@@ -16,11 +16,15 @@ class MainActivity : BaseActivity<ActMainBinding>(R.layout.act_main) {
         supportActionBar?.hide()
     }
 
+    // token 정보 확인 -> 없으면 LoginActivity로
     override fun onStart() {
         super.onStart()
     }
-    
+
     // onResum에서 token 정보 갱신
+    override fun onResume() {
+        super.onResume()
+    }
 
     fun onBtnClick(v : View) {
         startActivity(Intent(this, LoginActivity::class.java))
