@@ -11,7 +11,7 @@ import java.io.IOException
 import javax.inject.Inject
 
 // UseCase : Application 비지니스 로직을 ViewModel. 최종 사용자가 응용 프로그램과 상호작용하는 방법 지정
-class RegisterUser @Inject constructor(private val repository: AuthRepository) {
+class RegisterUserUseCase @Inject constructor(private val repository: AuthRepository) {
     // Kotlin invoke 연산자 : 이름 없이 호출된다. == 메서드 이름없이 호출할 수 있다.
     // 람다는 invoke 함수를 가진 객체다.
 

@@ -10,7 +10,7 @@ import retrofit2.HttpException
 import java.io.IOException
 import javax.inject.Inject
 
-class LoginUser @Inject constructor(private val repository: AuthRepository) {
+class LoginUserUseCase @Inject constructor(private val repository: AuthRepository) {
     operator fun invoke(request: LoginRequest): Flow<Resource<LoginResponse>> = flow {
         try {
             emit(Resource.Loading())

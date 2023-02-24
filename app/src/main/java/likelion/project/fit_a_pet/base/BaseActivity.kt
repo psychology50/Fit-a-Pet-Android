@@ -38,5 +38,4 @@ abstract class BaseActivity<B: ViewDataBinding> (
             finish()
         }
     }
-
 }
