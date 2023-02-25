@@ -3,7 +3,9 @@ package likelion.project.fit_a_pet.page
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
+import likelion.project.fit_a_pet.AuthApplication
 import likelion.project.fit_a_pet.R
 import likelion.project.fit_a_pet.base.BaseActivity
 import likelion.project.fit_a_pet.databinding.ActMainBinding
@@ -24,6 +26,11 @@ class MainActivity : BaseActivity<ActMainBinding>(R.layout.act_main) {
     // onResum에서 token 정보 갱신
     override fun onResume() {
         super.onResume()
+
+        val access = AuthApplication.prefs.getAccessToken("access", "no access token")
+        val refresh = AuthApplication.prefs.getRefreshToken("refresh", "no refresh token")
+        Log.e("TOKEN_PREF", access)
+        Log.e("TOKEN_PREF", refresh)
     }
 
     fun onBtnClick(v : View) {

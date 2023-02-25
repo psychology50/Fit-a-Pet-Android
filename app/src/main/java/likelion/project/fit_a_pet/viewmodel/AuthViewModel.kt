@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.*
+import likelion.project.fit_a_pet.AuthApplication
 import likelion.project.fit_a_pet.network.data.requests.LoginRequest
 import likelion.project.fit_a_pet.network.data.requests.RegisterRequest
 import likelion.project.fit_a_pet.model.repository.LoginState
