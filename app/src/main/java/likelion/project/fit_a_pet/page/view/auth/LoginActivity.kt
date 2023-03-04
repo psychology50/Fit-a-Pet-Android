@@ -35,6 +35,7 @@ class LoginActivity : BaseActivity<ActLoginBinding>(R.layout.act_login) {
             } else {
                 val loginRequest = LoginRequest(nickname, pwd)
                 // Loading dialog 띄우고 시작
+                showToast("Loading...")
                 authViewModel.login(loginRequest)
                 observeLogin()
             }
@@ -44,21 +45,30 @@ class LoginActivity : BaseActivity<ActLoginBinding>(R.layout.act_login) {
     private fun observeLogin() {
         lifecycleScope.launch {
             authViewModel.loginState.collect { data ->
-                when {
-                    data.isLoading -> {
-                        showToast("Loading...")
-                    }
-                    data.data != null -> {
-                        Log.d("LoginPage", "login success");
-                        showToast("Login successful $data")
-                        finish()
-                    }
-                    else -> {
-                        showToast("Login Failure ${data.error}")
-                    }
+                if (data.data != null) {
+                    showToast("Login successful")
+                    finish()
+                } else {
+                    showToast("Login Failure ${data.error}")
                 }
+//                when {
+//                    data.isLoading -> {
+//                        showToast("Loading...")
+//                    }
+//                    data.data != null -> {
+//                        Log.d("LoginPage", "login success")
+//                        showToast("Login successful $data")
+//                        finish()
+//                    }
+//                    else -> {
+//                        showToast("Login Failure ${data.error}")
+//                    }
+//                }
                 // 로그인 성공하면 dialog dismiss
             }
         }
     }
+
+
+
 }

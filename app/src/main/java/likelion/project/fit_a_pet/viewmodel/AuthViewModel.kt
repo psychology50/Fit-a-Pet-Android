@@ -1,7 +1,5 @@
 package likelion.project.fit_a_pet.viewmodel
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -53,23 +51,27 @@ class AuthViewModel @Inject constructor(
 
     fun login(loginRequest: LoginRequest) {
         loginUserUseCase(loginRequest)
-            .onStart { _loginState.value = LoginState(isLoading = true) }
             .onEach { result ->
                 when(result) {
                     is Resource.Success -> {
+                        val access = result.data?.access
+                        val refresh = result.data?.refresh
+
+                        if (access != null && refresh != null) {
+                            AuthApplication.prefs.setAccessToken("access", access)
+                            AuthApplication.prefs.setRefreshToken("refresh", refresh)
+                        }
+
                        _loginState.value = LoginState(data = result.data)
                     }
+//                    is Resource.Loading -> {
+//                        _loginState.value = LoginState(isLoading = true)
+//                    }
                     is Resource.Loading -> {}
                     is Resource.Error -> {
-                        _loginState.value = result.message?.let {
-                            LoginState(error = it)
-                        }!!
+                        _loginState.value = LoginState(error = result.message)
                     }
                 }
-            }
-            .catch { error ->
-                _loginState.value = LoginState(error = error.message ?: "Unknown error occurred")
-            }
-            .launchIn(viewModelScope)
+            }.launchIn(viewModelScope)
     }
 }

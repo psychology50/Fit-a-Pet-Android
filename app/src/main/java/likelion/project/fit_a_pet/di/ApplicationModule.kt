@@ -12,6 +12,7 @@ import dagger.hilt.components.SingletonComponent
 import likelion.project.fit_a_pet.model.repository.LoginState
 import likelion.project.fit_a_pet.network.AuthAPI
 import likelion.project.fit_a_pet.utils.Constants.BASE_URL
+import likelion.project.fit_a_pet.utils.NetworkException
 import likelion.project.fit_a_pet.utils.Resource
 import likelion.project.fit_a_pet.viewmodel.AuthViewModel
 import okhttp3.Interceptor
@@ -20,8 +21,10 @@ import okhttp3.Response
 import okhttp3.ResponseBody
 import okhttp3.internal.http2.Header
 import okhttp3.logging.HttpLoggingInterceptor
+import org.json.JSONObject
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import java.io.IOException
 import javax.inject.Singleton
 
 @Module
@@ -61,20 +64,13 @@ class ApplicationModule { // 어플리케이션 전체에서 사용되는 종속
             val request = chain.request()
             val response = chain.proceed(request)
 
-            if (!response.isSuccessful) {
-                val errorBody = response.body?.string()
-                Log.e("LoginInterceptor", "Login failed: $errorBody")
+//            response.extractResponseJson()
 
-                // create Resource.Error Obj
-                val errorType = when(response.code) {
-                    400 -> Resource.ErrorType.BAD_REQUEST
-                    401 -> Resource.ErrorType.UNAUTHORIZED
-                    403 -> Resource.ErrorType.FORBIDDEN
-                    404 -> Resource.ErrorType.NOT_FOUND
-                    500 -> Resource.ErrorType.INTERNAL_SERVER_ERROR
-                    else -> Resource.ErrorType.UNKNOWN
-                }
-                val error = Resource.Error(errorBody ?: "", errorType)
+            if (!response.isSuccessful) {
+                Log.e("LoginInterceptor", "Login failed: ${response.code}")
+                Log.e("LoginInterceptor", "Login failed: ${response.message}")
+
+                throw NetworkException(response.message)
             }
             response
         }
@@ -83,5 +79,19 @@ class ApplicationModule { // 어플리케이션 전체에서 사용되는 종속
             .addInterceptor(loggingInterceptor)
             .addInterceptor(errorInterceptor)
             .build()
+    }
+
+    private fun Response.extractResponseJson(): JSONObject {
+        val jsonString = this.body?.string() ?: EMPTY_JSON
+        return try {
+            JSONObject(jsonString)
+        } catch (e: Exception) {
+            Log.e("LoginInterceptor", "not json response $jsonString")
+            throw NetworkException(jsonString)
+        }
+    }
+
+    companion object {
+        private const val EMPTY_JSON = "{}"
     }
 }

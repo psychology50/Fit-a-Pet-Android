@@ -24,9 +24,9 @@ class RegisterUserUseCase @Inject constructor(private val repository: AuthReposi
             val response = repository.register(request)
             emit(Resource.Success(response))
         } catch(e: HttpException) {
-            emit(Resource.Error("An error occurred"))
+//            emit(Resource.Error("An error occurred"))
         } catch (e: IOException) {
-            emit(Resource.Error("Check internet connection"))
+//            emit(Resource.Error("Check internet connection"))
         }
     }
 }

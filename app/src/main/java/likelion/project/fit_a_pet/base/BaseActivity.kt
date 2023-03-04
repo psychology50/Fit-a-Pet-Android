@@ -27,6 +27,8 @@ abstract class BaseActivity<B: ViewDataBinding> (
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
     }
 
+
+
     override fun onDestroy() {
         super.onDestroy()
         compositeDisposable.clear()
