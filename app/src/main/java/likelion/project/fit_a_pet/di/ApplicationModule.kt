@@ -15,10 +15,7 @@ import likelion.project.fit_a_pet.utils.Constants.BASE_URL
 import likelion.project.fit_a_pet.utils.NetworkException
 import likelion.project.fit_a_pet.utils.Resource
 import likelion.project.fit_a_pet.viewmodel.AuthViewModel
-import okhttp3.Interceptor
-import okhttp3.OkHttpClient
-import okhttp3.Response
-import okhttp3.ResponseBody
+import okhttp3.*
 import okhttp3.internal.http2.Header
 import okhttp3.logging.HttpLoggingInterceptor
 import org.json.JSONObject
@@ -26,10 +23,12 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.io.IOException
 import javax.inject.Singleton
+import javax.security.auth.login.LoginException
+import kotlin.jvm.Throws
 
 @Module
 @InstallIn(SingletonComponent::class)
-class ApplicationModule { // 어플리케이션 전체에서 사용되는 종속성
+class ApplicationModule{ // 어플리케이션 전체에서 사용되는 종속성
     @Singleton @Provides
     fun provideGsonBuilder(): Gson { // Kotlin 객체 <-> JSON
         return GsonBuilder().create()
@@ -65,12 +64,10 @@ class ApplicationModule { // 어플리케이션 전체에서 사용되는 종속
             val response = chain.proceed(request)
 
 //            response.extractResponseJson()
-
             if (!response.isSuccessful) {
                 Log.e("LoginInterceptor", "Login failed: ${response.code}")
                 Log.e("LoginInterceptor", "Login failed: ${response.message}")
-
-                throw NetworkException(response.message)
+                throw NetworkException(response.code, response.message)
             }
             response
         }
@@ -87,7 +84,7 @@ class ApplicationModule { // 어플리케이션 전체에서 사용되는 종속
             JSONObject(jsonString)
         } catch (e: Exception) {
             Log.e("LoginInterceptor", "not json response $jsonString")
-            throw NetworkException(jsonString)
+            throw LoginException(jsonString)
         }
     }
 

@@ -22,22 +22,5 @@ class LoginUserUseCase @Inject constructor(private val repository: AuthRepositor
             Log.e("LoginInterceptor", "Login failed exception: ${e.message}")
             emit(Resource.Error(e.message))
         }
-//        catch (e:HttpException) {
-//
-//            val errorType = when(e.code()) {
-//                400 -> Resource.ErrorType.BAD_REQUEST
-//                401 -> Resource.ErrorType.UNAUTHORIZED
-//                403 -> Resource.ErrorType.FORBIDDEN
-//                404 -> Resource.ErrorType.NOT_FOUND
-//                500 -> Resource.ErrorType.INTERNAL_SERVER_ERROR
-//                else -> Resource.ErrorType.UNKNOWN
-//            }
-//
-//            emit(Resource.Error(null, "An error occurred", errorType))
-//        } catch (e:IOException) {
-//            val errorType = Resource.ErrorType.UNKNOWN
-//
-//            emit(Resource.Error(null, "No internet connection", errorType))
-//        }
     }
 }
