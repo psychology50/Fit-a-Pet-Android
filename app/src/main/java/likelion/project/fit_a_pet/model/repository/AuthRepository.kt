@@ -18,7 +18,14 @@ import javax.security.auth.login.LoginException
 class AuthRepository @Inject constructor(
     private val api: AuthAPI
 ) {
-    suspend fun register(request: RegisterRequest): RegisterResponse = api.register(request)
+    suspend fun register(request: RegisterRequest): RegisterResponse {
+        try {
+            return api.register(request)
+        } catch (e: NetworkException) {
+            throw NetworkException(e.code, e.message)
+        }
+    }
+
     suspend fun login(request: LoginRequest): LoginResponse {
         try {
             return api.login(request)

@@ -1,10 +1,12 @@
 package likelion.project.fit_a_pet.model.usecase
 
+import android.util.Log
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import likelion.project.fit_a_pet.model.repository.AuthRepository
 import likelion.project.fit_a_pet.network.data.requests.RegisterRequest
 import likelion.project.fit_a_pet.network.data.responses.RegisterResponse
+import likelion.project.fit_a_pet.utils.NetworkException
 import likelion.project.fit_a_pet.utils.Resource
 import retrofit2.HttpException
 import java.io.IOException
@@ -23,10 +25,9 @@ class RegisterUserUseCase @Inject constructor(private val repository: AuthReposi
             emit(Resource.Loading()) // emit: flow에서 데이터를 전달하기 위한 함수
             val response = repository.register(request)
             emit(Resource.Success(response))
-        } catch(e: HttpException) {
-//            emit(Resource.Error("An error occurred"))
-        } catch (e: IOException) {
-//            emit(Resource.Error("Check internet connection"))
+        } catch (e:NetworkException) {
+            Log.e("RegisterInterceptor", "Register failed exception: ${e.message}")
+            emit(Resource.Error(e.message))
         }
     }
 }

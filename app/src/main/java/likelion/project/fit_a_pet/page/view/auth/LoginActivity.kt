@@ -34,7 +34,6 @@ class LoginActivity : BaseActivity<ActLoginBinding>(R.layout.act_login) {
                 showToast("Password required")
             } else {
                 val loginRequest = LoginRequest(nickname, pwd)
-                // Loading dialog 띄우고 시작
                 showToast("Loading...")
                 authViewModel.login(loginRequest)
                 observeLogin()
@@ -51,20 +50,6 @@ class LoginActivity : BaseActivity<ActLoginBinding>(R.layout.act_login) {
                 } else {
                     showToast("Login Failure ${data.error}")
                 }
-//                when {
-//                    data.isLoading -> {
-//                        showToast("Loading...")
-//                    }
-//                    data.data != null -> {
-//                        Log.d("LoginPage", "login success")
-//                        showToast("Login successful $data")
-//                        finish()
-//                    }
-//                    else -> {
-//                        showToast("Login Failure ${data.error}")
-//                    }
-//                }
-                // 로그인 성공하면 dialog dismiss
             }
         }
     }

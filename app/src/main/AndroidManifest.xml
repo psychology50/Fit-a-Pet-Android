@@ -35,7 +35,7 @@
         <activity
                 android:name=".page.view.auth.LoginActivity"
                 android:exported="true"/>
-        <activity android:name=".page.view.auth.SignUpActivity"
+        <activity android:name=".page.view.auth.RegisterActivity"
                   android:exported="true"/>
     </application>
 

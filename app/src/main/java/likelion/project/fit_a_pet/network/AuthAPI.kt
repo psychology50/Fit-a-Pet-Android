@@ -7,7 +7,7 @@ import likelion.project.fit_a_pet.network.data.responses.RegisterResponse
 import retrofit2.http.Body
 import retrofit2.http.POST
 
-// API End-Poing
+// API End-Point
 interface AuthAPI {
     companion object{
         const val REGISTER = "users/signup/"

@@ -1,5 +1,6 @@
 package likelion.project.fit_a_pet.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -20,9 +21,7 @@ class AuthViewModel @Inject constructor(
     private val registerUserUseCase: RegisterUserUseCase,
     private val loginUserUseCase: LoginUserUseCase
 ) : ViewModel() {
-    // MutableLiveData: get, set 가능
     private val _registerState: MutableStateFlow<RegisterState> = MutableStateFlow(RegisterState())
-    // LiveData : get()만 가능
     val registerState: StateFlow<RegisterState> get() = _registerState
 
     private val _loginState: MutableStateFlow<LoginState> = MutableStateFlow(LoginState())
@@ -30,7 +29,6 @@ class AuthViewModel @Inject constructor(
 
     fun register(registerRequest: RegisterRequest) {
         registerUserUseCase(registerRequest)
-            .onStart { _registerState.value = RegisterState(isLoading = true) }
             .onEach { result ->
                 when(result) {
                     is Resource.Success -> {
@@ -38,14 +36,10 @@ class AuthViewModel @Inject constructor(
                     }
                     is Resource.Loading -> {}
                     is Resource.Error -> {
-                        _registerState.value = result.message?.let {
-                            RegisterState(error = it)
-                        }!!
+                        Log.e("RegisterInterceptor", "failed ViewModel ${result.message}")
+                        _registerState.value = RegisterState(error = result.message)
                     }
                 }
-            }
-            .catch { error ->
-                _registerState.value = RegisterState(error = error.message ?: "Unknown error occurred")
             }.launchIn(viewModelScope)
     }
 
@@ -64,11 +58,9 @@ class AuthViewModel @Inject constructor(
 
                        _loginState.value = LoginState(data = result.data)
                     }
-//                    is Resource.Loading -> {
-//                        _loginState.value = LoginState(isLoading = true)
-//                    }
                     is Resource.Loading -> {}
                     is Resource.Error -> {
+                        Log.e("LoginInterceptor", "failed ViewModel ${result.message}")
                         _loginState.value = LoginState(error = result.message)
                     }
                 }

@@ -63,7 +63,7 @@ class ApplicationModule{ // 어플리케이션 전체에서 사용되는 종속�
             val request = chain.request()
             val response = chain.proceed(request)
 
-//            response.extractResponseJson()
+            response.extractResponseJson()
             if (!response.isSuccessful) {
                 Log.e("LoginInterceptor", "Login failed: ${response.code}")
                 Log.e("LoginInterceptor", "Login failed: ${response.message}")
@@ -84,7 +84,7 @@ class ApplicationModule{ // 어플리케이션 전체에서 사용되는 종속�
             JSONObject(jsonString)
         } catch (e: Exception) {
             Log.e("LoginInterceptor", "not json response $jsonString")
-            throw LoginException(jsonString)
+            throw NetworkException(999, "not json type")
         }
     }
 
