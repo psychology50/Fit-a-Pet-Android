@@ -33,4 +33,6 @@ class AuthRepository @Inject constructor(
             throw NetworkException(e.code, e.message)
         }
     }
+
+    suspend fun refreshAccessToken(refresh: String): LoginResponse = api.refreshAccessToken(refresh)
 }

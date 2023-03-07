@@ -1,7 +1,6 @@
 package likelion.project.fit_a_pet.di
 
 import android.content.Context
-import android.util.Log
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import dagger.Module
@@ -9,22 +8,13 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
-import likelion.project.fit_a_pet.model.repository.LoginState
 import likelion.project.fit_a_pet.network.AuthAPI
 import likelion.project.fit_a_pet.utils.Constants.BASE_URL
-import likelion.project.fit_a_pet.utils.NetworkException
-import likelion.project.fit_a_pet.utils.Resource
-import likelion.project.fit_a_pet.viewmodel.AuthViewModel
 import okhttp3.*
-import okhttp3.internal.http2.Header
 import okhttp3.logging.HttpLoggingInterceptor
-import org.json.JSONObject
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import java.io.IOException
 import javax.inject.Singleton
-import javax.security.auth.login.LoginException
-import kotlin.jvm.Throws
 
 @Module
 @InstallIn(SingletonComponent::class)
@@ -53,42 +43,29 @@ class ApplicationModule{ // 어플리케이션 전체에서 사용되는 종속�
     }
 
     @Singleton @Provides
-    fun provideInterceptor ( // API 요청을 가로채고 응답을 콘솔에 기록. (디버깅용)
-        @ApplicationContext context: Context
+    fun provideInterceptor (
+        @ApplicationContext context: Context,
+        authInterceptor: AuthInterceptor,
+        errorInterceptor: ErrorInterceptor,
     ): OkHttpClient {
         val loggingInterceptor = HttpLoggingInterceptor().apply {
             level = HttpLoggingInterceptor.Level.BODY
         }
-        val errorInterceptor = Interceptor { chain ->
-            val request = chain.request()
-            val response = chain.proceed(request)
-
-            response.extractResponseJson()
-            if (!response.isSuccessful) {
-                Log.e("LoginInterceptor", "Login failed: ${response.code}")
-                Log.e("LoginInterceptor", "Login failed: ${response.message}")
-                throw NetworkException(response.code, response.message)
-            }
-            response
-        }
 
         return OkHttpClient.Builder()
             .addInterceptor(loggingInterceptor)
+//            .addInterceptor(authInterceptor)
             .addInterceptor(errorInterceptor)
             .build()
     }
 
-    private fun Response.extractResponseJson(): JSONObject {
-        val jsonString = this.body?.string() ?: EMPTY_JSON
-        return try {
-            JSONObject(jsonString)
-        } catch (e: Exception) {
-            Log.e("LoginInterceptor", "not json response $jsonString")
-            throw NetworkException(999, "not json type")
-        }
+    @Singleton @Provides
+    fun provideAuthInterceptor() : Interceptor {
+        return AuthInterceptor()
     }
 
-    companion object {
-        private const val EMPTY_JSON = "{}"
+    @Singleton @Provides
+    fun provideErrorInterceptor() : Interceptor {
+        return ErrorInterceptor()
     }
 }
