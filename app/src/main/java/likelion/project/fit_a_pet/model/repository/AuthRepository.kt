@@ -9,6 +9,7 @@ import likelion.project.fit_a_pet.network.data.requests.RegisterRequest
 import likelion.project.fit_a_pet.network.data.responses.LoginResponse
 import likelion.project.fit_a_pet.network.data.responses.RegisterResponse
 import likelion.project.fit_a_pet.utils.NetworkException
+import retrofit2.Call
 import java.lang.Exception
 import javax.inject.Inject
 import javax.security.auth.login.LoginException
@@ -34,5 +35,5 @@ class AuthRepository @Inject constructor(
         }
     }
 
-    suspend fun refreshAccessToken(refresh: String): LoginResponse = api.refreshAccessToken(refresh)
+    fun refreshAccessToken(refresh: String): Call<LoginResponse> = api.refreshAccessToken(refresh)
 }

@@ -32,7 +32,6 @@ class ErrorInterceptor @Inject constructor() : Interceptor {
     }
 
     private fun Response.extractResponseJson(): JSONObject {
-//        val jsonString = this.body?.string() ?: EMPTY_JSON
         val jsonString = this.peekBody(Long.MAX_VALUE).string() ?: EMPTY_JSON
         return try {
             JSONObject(jsonString)

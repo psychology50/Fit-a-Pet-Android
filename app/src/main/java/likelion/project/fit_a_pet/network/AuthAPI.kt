@@ -4,6 +4,7 @@ import likelion.project.fit_a_pet.network.data.requests.LoginRequest
 import likelion.project.fit_a_pet.network.data.requests.RegisterRequest
 import likelion.project.fit_a_pet.network.data.responses.LoginResponse
 import likelion.project.fit_a_pet.network.data.responses.RegisterResponse
+import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.Header
 import retrofit2.http.POST
@@ -23,5 +24,5 @@ interface AuthAPI {
     suspend fun login(@Body loginRequest: LoginRequest): LoginResponse
 
     @POST(REFRESH)
-    suspend fun refreshAccessToken(@Header("Authorization") token: String): LoginResponse
+    fun refreshAccessToken(@Header("Authorization") token: String): Call<LoginResponse>
 }
