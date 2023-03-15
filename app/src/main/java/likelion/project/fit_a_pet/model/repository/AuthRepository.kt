@@ -35,5 +35,5 @@ class AuthRepository @Inject constructor(
         }
     }
 
-    fun refreshAccessToken(refresh: String): Call<LoginResponse> = api.refreshAccessToken(refresh)
+    suspend fun refreshAccessToken(refresh: String): LoginResponse = api.refreshAccessToken(refresh)
 }
