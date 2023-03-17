@@ -6,18 +6,11 @@ import dagger.hilt.components.SingletonComponent
 import kotlinx.coroutines.*
 import likelion.project.fit_a_pet.AuthApplication
 import likelion.project.fit_a_pet.network.AuthAPI
-import likelion.project.fit_a_pet.network.data.responses.LoginResponse
 import likelion.project.fit_a_pet.utils.Constants.BASE_URL
-import likelion.project.fit_a_pet.utils.NetworkException
 import okhttp3.Interceptor
-import okhttp3.Request
 import okhttp3.Response
-import retrofit2.Call
-import retrofit2.Callback
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.create
-import java.lang.RuntimeException
 import javax.inject.Inject
 
 @Module
@@ -44,6 +37,9 @@ class AuthInterceptor @Inject constructor() : Interceptor {
         if (response.code == 401) {
             val refreshToken = AuthApplication.prefs.getRefreshToken("refresh", "")
             if (refreshToken?.isNotEmpty() ?: false) {
+                runBlocking {
+
+                }
                 // runBlocking이 더 직관적이지 않은가?
 //                getNewToken(refreshToken)?.let {
 //                    response
