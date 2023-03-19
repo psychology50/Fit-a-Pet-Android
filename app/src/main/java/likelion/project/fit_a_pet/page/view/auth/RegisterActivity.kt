@@ -1,9 +1,9 @@
 package likelion.project.fit_a_pet.page.view.auth
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -15,7 +15,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -26,54 +25,97 @@ class RegisterActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            Content()
+            Header(HeaderMessage(stringResource(R.string.register), "")) {
+                Content()
+            }
+        }
+    }
+
+    @Preview(showBackground = true)
+    @Composable
+    fun PreviewBaseActivityUI() {
+        MaterialTheme {
+            Header(HeaderMessage(stringResource(R.string.register), "")) {
+                Content()
+            }
         }
     }
 
     data class HeaderMessage(val logo: String, val option: String)
 
-    @Preview
+    @OptIn(ExperimentalMaterial3Api::class)
+    @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
+    @Composable
+    @NonRestartableComposable
+    fun Header(
+        msg: HeaderMessage,
+        content: @Composable () -> Unit,
+    ) {
+        MaterialTheme {
+            Scaffold(
+                containerColor = Color(red = 0xF5, green = 0xF5, blue = 0xF5),
+                topBar = {
+                    TopAppBar(
+                        title = { Text(text = msg.logo) },
+                        navigationIcon = {
+                            Icon(
+                                painter = painterResource(R.drawable.ic_backbtn),
+                                contentDescription = null,
+                            )
+                        },
+                        colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
+                            containerColor = Color(red = 0xF5, green = 0xF5, blue = 0xF5, alpha = 0x00)
+                        )
+                    )
+                },
+                content = { content() }
+            )
+        }
+    }
+
     @Composable
     private fun Content() {
-        MaterialTheme {
-            val typography = MaterialTheme.typography
+        Surface(
+            color = Color(red = 0xF5, green = 0xF5, blue = 0xF5, alpha = 0x00)
+        ) {
+//            val typography = MaterialTheme.typography
             val scrollState = rememberScrollState()
             Column(
                 Modifier
                     .verticalScroll(scrollState)
                     .fillMaxSize()
-                    .background(
-                        color = Color(red = 0xF5, green = 0xF5, blue = 0xF5)
-                    ),
+//                    .background(
+//                        color = Color(red = 0xF5, green = 0xF5, blue = 0xF5)
+//                    )
+                    .padding(top = 56.dp),
             ) {
-                Header(HeaderMessage(stringResource(R.string.register), ""))
                 RegisterBox()
             }
         }
     }
 
-    @Composable
-    fun Header(
-        msg: HeaderMessage
-    ) {
-        Row(
-            Modifier.fillMaxWidth().padding(8.dp),
-        ) {
-            IconButton(
-                onClick = {}
-            ) {
-                Icon(
-                    painter = painterResource(R.drawable.ic_backbtn),
-                    contentDescription = null,
-                )
-            }
-            Text(
-                text = msg.logo,
-                modifier = Modifier.fillMaxWidth(),
-                textAlign = TextAlign.Center
-            )
-        }
-    }
+//    @Composable
+//    fun Header(
+//        msg: HeaderMessage
+//    ) {
+////        Row(
+////            Modifier.fillMaxWidth().padding(8.dp),
+////        ) {
+//            IconButton(
+//                onClick = {}
+//            ) {
+//                Icon(
+//                    painter = painterResource(R.drawable.ic_backbtn),
+//                    contentDescription = null,
+//                )
+//            }
+//            Text(
+//                text = msg.logo,
+//                modifier = Modifier.fillMaxWidth(),
+//                textAlign = TextAlign.Center
+//            )
+////        }
+//    }
 
     @Composable
     fun RegisterBox() {
@@ -194,60 +236,5 @@ class RegisterActivity : ComponentActivity() {
         }
     }
 
-//    @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
-//    @Composable
-//    @NonRestartableComposable
-//    fun Header(
-//        msg: HeaderMessage? = null,
-//        content: @Composable () -> Unit,
-//    ) {
-//        Scaffold(
-//            topBar = {
-//                TopAppBar(
-//                    title = { Text(text = msg.logo) },
-//                    navigationIcon = {
-//                        Icon(
-//                            imageVector = Icons.Default.ArrowBack,
-//                            contentDescription = "Back Button"
-//                        )
-//                    }
-//                )
-//            }
-//        ) { content() }
-//        Row(
-//            verticalAlignment = Alignment.CenterVertically,
-//            horizontalArrangement = Arrangement.Center
-//        ) {
-//            Image(
-//                painter = painterResource(R.drawable.ic_backbtn),
-//                contentDescription = "back button"
-//            )
-//
-//            // center
-//            if (msg.logo == "") {
-//                Image(
-//                    painter = painterResource(R.drawable.ic_logo_black_background),
-//                    contentDescription = "logo",
-//                    modifier = Modifier.width(70.dp).height(70.dp)
-//                )
-//            } else {
-//                Text(
-//                    text = msg.logo,
-//                    fontSize = 10.sp,
-//                    textAlign = TextAlign.Center,
-////                    modifier = Modifier.width(78.dp).height(29.dp),
-//                    fontFamily = FontFamily(Font(R.font.noto_sans_kr_bold, FontWeight.Bold)),
-//                    fontWeight = FontWeight.Bold,
-//
-//                    )
-//            }
-//
-//            if (msg.option != "") {
-//                Image(
-//                    painter = painterResource(R.drawable.ic_profile_background),
-//                    contentDescription = "profile"
-//                )
-//            }
-//        }
-//    }
+
 }

@@ -1,10 +1,6 @@
 package likelion.project.fit_a_pet.page.view.auth
 
-import android.content.Context
 import android.os.Bundle
-import android.util.Log
-import android.view.ViewGroup
-import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.lifecycle.lifecycleScope
 import dagger.hilt.android.AndroidEntryPoint
@@ -53,7 +49,4 @@ class LoginActivity : BaseActivity<ActLoginBinding>(R.layout.act_login) {
             }
         }
     }
-
-
-
 }
