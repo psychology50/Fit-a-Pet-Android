@@ -1,4 +1,4 @@
-package likelion.project.fit_a_pet.page.view.splash
+package likelion.project.fit_a_pet.ui.view.splash
 
 import android.content.Intent
 import android.os.Build
@@ -7,7 +7,7 @@ import android.util.Log
 import android.view.View
 import android.view.ViewTreeObserver
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
-import likelion.project.fit_a_pet.page.MainActivity
+import likelion.project.fit_a_pet.ui.MainActivity
 import likelion.project.fit_a_pet.R
 import likelion.project.fit_a_pet.base.BaseActivity
 import likelion.project.fit_a_pet.databinding.ActSplashBinding

@@ -24,7 +24,9 @@ fun LabeledTextField(
     keyboardType: KeyboardType = KeyboardType.Text,
     isPasword: Boolean = false,
     endPadding: Dp = 0.dp,
-    fraction: Float = 1f
+    fraction: Float = 1f,
+    condition: Boolean = false,
+    weight: Float = 0f,
 ) {
     TextField(
         value = value,
@@ -38,6 +40,11 @@ fun LabeledTextField(
             disabledIndicatorColor = Color.Transparent
         ),
         shape = RoundedCornerShape(8.dp),
-        modifier = Modifier.fillMaxWidth(fraction).padding(end = endPadding)
+        modifier = Modifier.fillMaxWidth(fraction).padding(end = endPadding),
+//        textStyle = TextStyle.Default.copy(
+//            fontFamily = notosanskr,
+//            fontWeight = FontWeight.Normal,
+//        )
+
     )
 }

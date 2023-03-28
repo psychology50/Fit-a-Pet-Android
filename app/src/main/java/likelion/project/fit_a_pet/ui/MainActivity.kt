@@ -1,7 +1,6 @@
-package likelion.project.fit_a_pet.page
+package likelion.project.fit_a_pet.ui
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -9,7 +8,7 @@ import likelion.project.fit_a_pet.AuthApplication
 import likelion.project.fit_a_pet.R
 import likelion.project.fit_a_pet.base.BaseActivity
 import likelion.project.fit_a_pet.databinding.ActMainBinding
-import likelion.project.fit_a_pet.page.view.auth.LoginActivity
+import likelion.project.fit_a_pet.ui.view.auth.LoginActivity
 
 class MainActivity : BaseActivity<ActMainBinding>(R.layout.act_main) {
     override fun onCreate(savedInstanceState: Bundle?) {

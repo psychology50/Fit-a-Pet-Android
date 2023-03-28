@@ -1,4 +1,4 @@
-package likelion.project.fit_a_pet.page.view.auth
+package likelion.project.fit_a_pet.ui.view.auth
 
 import android.os.Bundle
 import androidx.activity.viewModels
