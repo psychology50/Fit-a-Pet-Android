@@ -20,7 +20,7 @@
             android:name=".AuthApplication"
             >
         <activity
-                android:name=".ui.view.splash.SplashActivity"
+                android:name=".ui.activity.splash.SplashActivity"
                 android:exported="true"
                 android:theme="@style/Theme.FitaPet">
             <intent-filter>
@@ -33,9 +33,9 @@
                 android:name=".ui.MainActivity"
                 android:exported="true"/>
         <activity
-                android:name=".ui.view.auth.LoginActivity"
+                android:name=".ui.activity.auth.LoginActivity"
                 android:exported="true"/>
-        <activity android:name=".ui.view.auth.RegisterActivity"
+        <activity android:name=".ui.activity.auth.RegisterActivity"
                   android:exported="true"/>
     </application>
 

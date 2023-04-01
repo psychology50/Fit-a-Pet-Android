@@ -1,6 +1,9 @@
-package likelion.project.fit_a_pet.ui.view.auth
+package likelion.project.fit_a_pet.ui.activity.auth
 
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
+import android.view.View
 import androidx.activity.viewModels
 import androidx.lifecycle.lifecycleScope
 import dagger.hilt.android.AndroidEntryPoint
@@ -48,5 +51,10 @@ class LoginActivity : BaseActivity<ActLoginBinding>(R.layout.act_login) {
                 }
             }
         }
+    }
+
+    fun onBtnSignUp(v: View) {
+        Log.e("startRegisterActivity", "clicked")
+        startActivity(Intent(this, RegisterActivity::class.java))
     }
 }

@@ -1,17 +1,20 @@
 package likelion.project.fit_a_pet.viewmodel
 
 import android.util.Log
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onEach
 import likelion.project.fit_a_pet.AuthApplication
-import likelion.project.fit_a_pet.network.data.requests.LoginRequest
-import likelion.project.fit_a_pet.network.data.requests.RegisterRequest
+import likelion.project.fit_a_pet.base.BaseViewModel
 import likelion.project.fit_a_pet.model.repository.LoginState
 import likelion.project.fit_a_pet.model.repository.RegisterState
 import likelion.project.fit_a_pet.model.usecase.LoginUserUseCase
 import likelion.project.fit_a_pet.model.usecase.RegisterUserUseCase
+import likelion.project.fit_a_pet.network.data.requests.LoginRequest
+import likelion.project.fit_a_pet.network.data.requests.RegisterRequest
 import likelion.project.fit_a_pet.utils.Resource
 import javax.inject.Inject
 
@@ -20,7 +23,7 @@ import javax.inject.Inject
 class AuthViewModel @Inject constructor(
     private val registerUserUseCase: RegisterUserUseCase,
     private val loginUserUseCase: LoginUserUseCase
-) : ViewModel() {
+) : BaseViewModel() {
     private val _registerState: MutableStateFlow<RegisterState> = MutableStateFlow(RegisterState())
     val registerState: StateFlow<RegisterState> get() = _registerState
 

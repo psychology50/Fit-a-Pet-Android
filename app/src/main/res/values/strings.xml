@@ -6,13 +6,9 @@
     <string name="id">아이디</string>
     <string name="password">비밀번호</string>
     <string name="loginBtn">로그인하기</string>
-    <string name="searchUser">
-        <u>아이디/비밀번호 찾기</u>
-    </string>
+    <string name="searchUser">아이디/비밀번호 찾기</string>
     <string name="createUserText1">계정이 없으신가요?</string>
-    <string name="createUserText2">
-        <u>계정 만들기</u>
-    </string>
+    <string name="createUserText2">계정 만들기</string>
 
     <!-- registerForm -->
     <string name="nickname">닉네임</string>

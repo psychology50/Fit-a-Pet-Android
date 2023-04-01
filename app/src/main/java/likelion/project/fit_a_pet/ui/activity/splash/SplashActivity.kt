@@ -1,4 +1,4 @@
-package likelion.project.fit_a_pet.ui.view.splash
+package likelion.project.fit_a_pet.ui.activity.splash
 
 import android.content.Intent
 import android.os.Build

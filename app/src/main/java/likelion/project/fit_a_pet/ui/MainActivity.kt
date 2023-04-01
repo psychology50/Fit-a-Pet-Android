@@ -8,7 +8,7 @@ import likelion.project.fit_a_pet.AuthApplication
 import likelion.project.fit_a_pet.R
 import likelion.project.fit_a_pet.base.BaseActivity
 import likelion.project.fit_a_pet.databinding.ActMainBinding
-import likelion.project.fit_a_pet.ui.view.auth.LoginActivity
+import likelion.project.fit_a_pet.ui.activity.auth.LoginActivity
 
 class MainActivity : BaseActivity<ActMainBinding>(R.layout.act_main) {
     override fun onCreate(savedInstanceState: Bundle?) {
