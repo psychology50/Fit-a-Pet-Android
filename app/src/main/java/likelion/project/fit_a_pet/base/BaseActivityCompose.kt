@@ -7,22 +7,29 @@ import androidx.compose.runtime.Composable
 import androidx.lifecycle.ViewModelProvider
 
 
-
 /**
  * @sample [likelion.project.fit_a_pet.BaseActivityComposeSampleActivity]
  */
-abstract class BaseActivityCompose<T : BaseViewModel>(
-    var composable: @Composable (viewModel: T)->Unit,
-    val viewModel: Class<T>,
+abstract class BaseActivityCompose<T : BaseViewModel> (
+    val viewModel: Class<T>
 ) : ComponentActivity() {
+//    protected abstract val viewModel: Class<T>
+
+    @Composable
+    protected abstract fun GetComposable(viewModel: T)
+
+//    val composable: @Composable (viewModel: T) -> Unit
+//        @Composable get() = @Composable {
+//
+//        }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            composable.invoke(
-                ViewModelProvider(this)[viewModel]
-//                viewModel<T>()
-            )
-            //BaseActivityUI()
+            GetComposable(ViewModelProvider(this)[viewModel])
+//            composable.invoke(
+//                ViewModelProvider(this)[viewModel]
+//            )
         }
     }
 }

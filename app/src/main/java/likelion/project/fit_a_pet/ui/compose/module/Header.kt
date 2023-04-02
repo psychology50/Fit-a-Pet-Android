@@ -8,7 +8,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import likelion.project.fit_a_pet.R
-import likelion.project.fit_a_pet.ui.activity.auth.RegisterActivity
+import likelion.project.fit_a_pet.ui.activity.auth.HeaderMessage
 import likelion.project.fit_a_pet.ui.theme.notosanskr
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -16,7 +16,7 @@ import likelion.project.fit_a_pet.ui.theme.notosanskr
 @Composable
 @NonRestartableComposable
 fun Header(
-    msg: RegisterActivity.HeaderMessage,
+    msg: HeaderMessage,
     content: @Composable () -> Unit,
 ) {
     MaterialTheme {

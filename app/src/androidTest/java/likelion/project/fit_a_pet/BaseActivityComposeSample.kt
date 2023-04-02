@@ -17,6 +17,11 @@ fun MyActivityScreen(viewModel: MyActivityViewModel) {}
 class MyActivityViewModel : BaseViewModel() {}
 
 class BaseActivityComposeSampleActivity : BaseActivityCompose<MyActivityViewModel>(
-    composable = ::MyActivityScreen,
+//    composable = ::MyActivityScreen,
     viewModel = MyActivityViewModel::class.java
-)
+) {
+    @Composable
+    override fun GetComposable(viewModel: MyActivityViewModel) {
+        MyActivityScreen(viewModel)
+    }
+}
